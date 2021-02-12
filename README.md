@@ -1,15 +1,15 @@
 # Notes on React development
 
-### Create React App
-**npx create-react-app** 
+### Create React App (cmd)
+`npx create-react-app `
 
 gives project struture with folder and files to perform different tasks
 
-**hello-react--use -npm** 
+`hello-react--use -npm `
 
 Sets up folder hello-react using npm
 
-**npm start**
+`npm start`
 
 Opens project in local host
 
@@ -27,20 +27,23 @@ Opens project in local host
 ### Render react element to dom
  ReactDom takes 2 arguments 
  1. argument to create
- 2. 2. where to render element
+ 2. where to render element
 
+```
 
-    **ReactDOM.render(**
+ReactDOM.render(
 
-    **React.createElement ("h1", { style: {color: "blue" }}, "Hello!"),**
+React.createElement ("h1", { style: {color: "blue" }}, "Hello!"),
+    
+```
 1. React.createElement takes in 3 agruments
 
     *    name of the tag to create e.g. "ul" , "h2"
     *    properties for the element to have e.g. style: {color: "red"}
     *    any children e.g. tag or text "Hello!"
-
-
-    **document.getElementById("root"));** 
+      
+ 
+ ` document.getElementById("root"));`
 
 2. Renders element in root location, root is found in public/index folder
 
@@ -49,11 +52,13 @@ Opens project in local host
 
 *   Nested elements example below
 
-    **ReactDOM.render(**
+  ```
+  ReactDOM.render(
 
-    **React.createElement ("div", { style: {color: "blue" }}, React.createElement("h1 , null, hi!")) , document.getElementById("root")**
+    React.createElement ("div", { style: {color: "blue" }}, React.createElement("h1 , null, hi!")) , document.getElementById("root")
     
-    **);**`
+    );
+```
     
     
 ### Incoperate JSX (JavaScript as XML)
@@ -88,6 +93,29 @@ RReactDOM.render(
 );
 
 ```
- Result: ![](https://i.imgur.com/gMKN3QL.png)
+**Result:** ![](https://i.imgur.com/sEUC7Py.png)
 
+
+## Creating react components
+
+React components are collection of react elements used to build UI
+
+**Rule**
+
+* Components must be capitalised
+
+```
+function Hello() {
+  return (
+    <div>
+      <h1> Welcome to react! </h1>
+      <p> Lets build something cool </p>
+    </div>
+  );
+}
+//Function in self closing parenthesis
+ReactDOM.render(<Hello />, document.getElementById("root"));
+```
+
+**Result:**  ![](https://i.imgur.com/nEb4gae.png)
 
