@@ -1,121 +1,70 @@
-# Notes on React development
+# Getting Started with Create React App
 
-### Create React App (cmd)
-`npx create-react-app `
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-gives project struture with folder and files to perform different tasks
+## Available Scripts
 
-`hello-react--use -npm `
+In the project directory, you can run:
 
-Sets up folder hello-react using npm
+### `npm start`
 
-`npm start`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Opens project in local host
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Folders in React
-* package.json: Contains project dependicies like libralies (react , react dom. react scripts)
-* src: Contains all the files used to write the application
-* public: Contains all the build files when launching App for production
+### `npm test`
 
-### Shotcuts for browser
-* Ctrl + Shift + J -> Opens Developer Tools
-* RightClick + Inspect -> Opens Developer Tools
-    * Components tab: shows all the different componenets on the page
-* Ctrl ++ -> Zoom in Developer Tools
-    
-### Render react element to dom
- ReactDom takes 2 arguments 
- 1. argument to create
- 2. where to render element
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```
+### `npm run build`
 
-ReactDOM.render(
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-React.createElement ("h1", { style: {color: "blue" }}, "Hello!"),
-    
-```
-1. React.createElement takes in 3 agruments
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-    *    name of the tag to create e.g. "ul" , "h2"
-    *    properties for the element to have e.g. style: {color: "red"}
-    *    any children e.g. tag or text "Hello!"
-      
- 
- ` document.getElementById("root"));`
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-2. Renders element in root location, root is found in public/index folder
+### `npm run eject`
 
-  
-### Render multiple elements 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-*   Nested elements example below
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-  ```
-  ReactDOM.render(
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-    React.createElement ("div", { style: {color: "blue" }}, React.createElement("h1 , null, hi!")) , document.getElementById("root")
-    
-    );
-```
-    
-    
-### Incoperate JSX (JavaScript as XML)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-* Allows tags to be written directly in the JavaScript
-* Babel complies HTML into JS
-```
-//Example of unordered list 
-ReactDOM.rendom(
+## Learn More
 
-<ul>
-<li>List 1</li>
-<li>List 2</li>
-</ul>,
-document.getElementById("root") 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-);
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-//Example with CSS ID selector and dot notation
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-let city = {
-    name = Tokyo;
-    country = Japan;
-}
+### Analyzing the Bundle Size
 
-RReactDOM.render(
-  <h1 id="heading" className="cool-text">
-    Hello from {city.country} , {city.name}
-  </h1>,
-  document.getElementById("root")
-);
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-```
-**Result:** ![](https://i.imgur.com/sEUC7Py.png)
+### Making a Progressive Web App
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Creating react components
+### Advanced Configuration
 
-React components are collection of react elements used to build UI
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-**Rule**
+### Deployment
 
-* Components must be capitalised
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-```
-function Hello() {
-  return (
-    <div>
-      <h1> Welcome to react! </h1>
-      <p> Lets build something cool </p>
-    </div>
-  );
-}
-//Function in self closing parenthesis
-ReactDOM.render(<Hello />, document.getElementById("root"));
-```
+### `npm run build` fails to minify
 
-**Result:**  ![](https://i.imgur.com/nEb4gae.png)
-
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
