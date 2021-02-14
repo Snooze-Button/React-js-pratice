@@ -1,103 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { renderIntoDocument } from "react-dom/test-utils";
 import "./index.css";
 
-//Global var//
-var city = "Madrid";
-// block scope var//
-let country = "Spain";
+//Array Destructuring Example Below
 
-//make city an object//
-let city = {
-  name: "Tokyo",
-  country: "Japan",
-};
+const snacks = ["popcorn", "pizza bytes", "corn on the cob"];
 
-//Example of rendering from an object
+//accessing values via index
+console.log(snacks[1]);
+console.log(snacks[2]);
+console.log(snacks[0]);
 
-/* ReactDOM.render(
-  <h1 id="heading" className="cool-text">
-    Hello from {city.country} , {city.name}
-  </h1>,
-  document.getElementById("root")
-); */
+const [first, second, third] = ["popcorn", "pizza bytes", "corn on the cob"];
 
-//Component that takes in argument -> returns react element to create users interface//
+//accessing values via variables
+console.log(first);
+console.log(second);
+console.log(third);
 
-//Props and Component Example//
+//useState hooks example
+function App() {
+  //"let" dont work change to "const"
+  const [status, setStatus] = useState("Open");
+  const [year, setYear] = useState(2010);
+  const [anime, setAnime] = useState("Anime Name");
 
-/* function Hello({ library, message, number, nepaleseGreeting }) {
-  //Display key in console from the props object
-  //console.log(Object.keys(props));
+  const animeName = ["Crow Zero", "Air Gear", "Kuroko no Basket", "SAO"];
 
   return (
-    <div>
-      <h1> Welcome to {library} ! </h1>
-      <p className="font-size"> Lets build something {message} </p>
-      <p className="font-size">{number} props in this function</p>
-      <p className="font-size">{nepalese}</p>
-    </div>
+    <>
+      <h1> Year: {year} </h1>
+      <button onClick={() => setYear(year + 1)}>Year</button>
+
+      <h1>Anime Name: {anime}</h1>
+      <button onClick={() => setAnime(animeName[1])}>Anime</button>
+
+      <div>
+        <h1> Status: {status} </h1>;
+        <button onClick={() => setStatus("Closed")}>Closed</button>
+        <button onClick={() => setStatus("Be Right Back")}>Break</button>
+        <button onClick={() => setStatus("Open")}>Open</button>
+      </div>
+    </>
   );
 }
 
-function Greetings() {
-  return <Hello nepaleseGreeting="Namaste"></Hello>;
-}
- */
+ReactDOM.render(<App />, document.getElementById("root"));
 
-//Variable containaing List//
+//CheckBox Example
+function Checkbox() {
+  const [checked, setChecked] = useState(true);
 
-/* const lakeList = [
-  {
-    id: "1",
-    lakeName: "SouthSide",
-    lakeLocation: "NorthSide",
-  },
-  {
-    id: "2",
-    lakeName: "EastSide",
-    lakeLocation: "WestSide",
-  },
-]; */
+  //useEffect hook example
+  useEffect(() => {
+    alert(`checked: ${checked.toString()}`);
+  });
 
-const numbers = [1, 2, 3, 4, 5];
-
-// Rendering from a List//
-// ReactDOM.render(<App items={numbers} />, document.getElementById("root"));
-
-//CONDITIONAL RENDERING//
-
-function Lake({ name }) {
   return (
-    <div>
-      <h1> Go to the Lake named {name}</h1>{" "}
-    </div>
+    <>
+      <input
+        type="checkbox"
+        value={checked}
+        onClick={() => setChecked((checked) => !checked)}
+      />
+      {checked ? "checked" : "unchecked"}
+    </>
   );
 }
 
-function SkiResort({ name }) {
-  return (
-    <div>
-      <h1> Go to Ski named {name} </h1>
-    </div>
-  );
-}
-
-function App(props) {
-  /*    Using Map and Key Example
- <ul>
-      {items.map((item) => (
-        <li key={item.toString()}>{item}</li>
-      ))}
-    </ul>
-  ); */
-
-  if (props.season === "summer") {
-    return <Lake name="Celest" />;
-  } else if (props.season === "winter") {
-    return <SkiResort name="Icee" />;
-  }
-}
-
-ReactDOM.render(<App season="winter" />, document.getElementById("root"));
+ReactDOM.render(<Checkbox />, document.getElementById("root"));
